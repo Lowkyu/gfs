@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+</head>
+<body>
+<script>
+var cahpTitle = new Array();
+chapTitle =[
+"変数とループ制御",
+"第２章",
+"第３章",
+"第４章",
+];
+var chapNum = new Array();
+chapNum = [8,1,1,1];
+var listTitle = new Array();
+listTitle = [
+"HTMLによる繰り返し",
+"while文による繰り返し",
+"for文による繰り返し",
+"while文によるフォントサイズ変更",
+"while文と変数",
+"if文,else文,elseif文"
+];
+for(var cnt = 0;cnt<chapTitle.length;cnt++){
+	document.write("<span>"+chapTitle[cnt]+"</span>\n<ul>");
+	for(var i = 0;i<chapNum[cnt];i++){
+		if(i < 10){
+			document.write('<li><a href="http://192.168.1.252/~d33837/201637/php/test10'+i+'.php" class="childCate" target="preview">'+listTitle[i]+'</a></li>\n');
+		}else{
+			document.write('<li><a href="http://192.168.1.252/~d33837/201637/php/test1'+i+'.php" class="childCate" target="preview">'+listTitle[i]+'</a></li>\n');
+		}
+				
+	}
+	document.write("</ul>");
+}
+</script>
+
+
+

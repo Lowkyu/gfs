@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+<script>
+
+function hyoji(hankei) {
+	var menseki ;
+	menseki = hankei * hankei * 3.14;
+	return menseki;
+}
+</script>
+</head>
+<body>
+<script>
+menseki = hyoji(100);
+document.write("円の面積は"+menseki+"<br>");
+document.write("円柱の体積は"+menseki*10+"<br>");
+document.write("円錐の体積は"+menseki/3+"<br>");
+document.write("球の体積は"+menseki/3*4*100);
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>37xxxxvii</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="javascript" type="text/javascript" href="textloop.js">
+<script type="text/javascript" src="https://npmcdn.com/headroom.js@0.9.3"></script>
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="navFixed.js"></script>
+<script type="text/javascript" src="pageTop.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<script>
+function textloop(school,count){ 								//shool＝学校名,count＝ループ数
+	for(var i = 0;i<count;i++){
+		document.write(school+" ");
+	}
+}
+</script>
+<script>
+$(function() {
+    var nav = $('.nav');
+    //表示位置
+    var navTop = nav.offset().top+350;
+    //ナビゲーションの高さ（シャドウの分だけ足してます）
+    var navHeight = nav.height()+10;
+    var showFlag = false;
+    nav.css('top', -navHeight+'px');
+    //ナビゲーションの位置まできたら表示
+    $(window).scroll(function () {
+        var winTop = $(this).scrollTop();
+        if (winTop >= navTop) {
+            if (showFlag == false) {
+                showFlag = true;
+                nav
+                    .addClass('fixed')
+                    .stop().animate({'top' : '0px'}, 200);
+            }
+        } else if (winTop <= navTop) {
+            if (showFlag) {
+                showFlag = false;
+                nav.stop().animate({'top' : -navHeight+'px'}, 200, function(){
+                    nav.removeClass('fixed');
+                });
+            }
+        }
+    });
+});
+</script>
+<script>
+$(function(){
+var topBtn=$('#pageTop');
+topBtn.hide();
+
+//◇ボタンの表示設定
+$(window).scroll(function(){
+  if($(this).scrollTop()>80){
+    //---- 画面を80pxスクロールしたら、ボタンを表示する
+    topBtn.fadeIn();
+  }else{
+    //---- 画面が80pxより上なら、ボタンを表示しない
+    topBtn.fadeOut();
+  }
+});
+
+// ◇ボタンをクリックしたら、スクロールして上に戻る
+topBtn.click(function(){
+  $('body,html').animate({
+  scrollTop: 0},500);
+  return false;
+});
+
+});
+</script>
+</head>
+<body>
+<!--****************************************************************
+                           ヘッダー
+******************************************************************-->
+<header id="header"class="head">
+<h1>37xxxvii</h1>
+<p>あいうえおかきくけこさしすせそ</p>
+</header>
+<!--****************************************************************
+                           ナビゲーション
+******************************************************************-->
+<nav id="fixedBox" class="nav">
+<h1 >37xxxvii</h1>
+<ul>
+	<li><a href="#">HOME</a></li>
+	<li><a href="#">PRODUCTS</a></li>
+	<li><a href="#">INFORMATION</a></li>
+	<li><a href="#">CATEGORY <span style="font-size:5px">▼</span></a>
+		<ul>
+			<li><a href="#">カテゴリ1</a></li>
+			<li><a href="#">カテゴリ2</a></li>
+			<li><a href="#">カテゴリ3</a></li>
+			<li><a href="#">カテゴリ4</a></li>
+		</ul>
+	</li>
+	<li><a href="#">CSR</a></li>
+	<li><a href="#">FAQ</a></li>
+</ul>
+</nav>
+<div id="pageTop">
+<a href="#top">TOP</a>
+</div>
+<!--****************************************************************
+                           ラップ
+******************************************************************-->
+<div id="wrap">
+<article>
+<section>
+<h1>セクション1</h1>
+<p><script>textloop("神港高校",1000);</script></p>
+<h1>セクション2</h1>
+<p><script>textloop("六甲アイランド",20);</script><p>
+</article>
+</section>
+<aside>
+<section class="sideMenu">
+<h1>カテゴリー</h1>
+<ul>
+	<li class="pareCate"><a href="#">カテゴリーA</a></li>
+		<ul>
+			<li><a href="#" class="childCate">カテゴリー１</a></li>
+			<li><a href="#" class="childCate">カテゴリー２</a></li>
+			<li><a href="#" class="childCate">カテゴリー３</a></li>
+		</ul>
+	<li class="pareCate"><a href="#">カテゴリーB</a></li>
+		<ul>
+			<li><a href="#" class="childCate">カテゴリー１</a></li>
+			<li><a href="#" class="childCate">カテゴリー２</a></li>
+			<li><a href="#" class="childCate">カテゴリー３</a></li>
+		</ul>
+	<li class="pareCate"><a href="#">カテゴリーC</a></li>
+		<ul>
+			<li><a href="#" class="childCate">カテゴリー１</a></li>
+			<li><a href="#" class="childCate">カテゴリー２</a></li>
+			<li><a href="#" class="childCate">カテゴリー３</a></li>
+		</ul>
+	<li class="pareCate"><a href="#">カテゴリーD</a></li>
+		<ul>
+			<li><a href="#" class="childCate">カテゴリー１</a></li>
+			<li><a href="#" class="childCate">カテゴリー２</a></li>
+			<li><a href="#" class="childCate">カテゴリー３</a></li>
+		</ul>
+</ul>
+</section>
+<section class="sideMenu">
+<h1>アーカイブ</h1>
+<ul>
+	<li class="pareAchv"><a href="#">アーカイブ1</a></li>
+	<li class="pareAchv"><a href="#">アーカイブ2</a></li>
+	<li class="pareAchv"><a href="#">アーカイブ3</a></li>
+	<li class="pareAchv"><a href="#">アーカイブ4</a></li>
+</ul>
+</section>
+</aside>
+</div>
+<!--****************************************************************
+                           フッター
+******************************************************************-->
+<footer>
+<p>Copyright(C) 37xxxvii All Rights Reserved</p>
+<address>Kobe, Japan</address>
+</foorer>
+</body>
+</html>

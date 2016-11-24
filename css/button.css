@@ -1,0 +1,13 @@
+button{
+	width:150px;
+	height:40px;
+	border-radius:20px;
+	background:white;
+	border:solid 2px #f53737;
+	cursor:pointer;
+	color:#f53737;S
+	outline:noe;
+	text-align:center;
+	font-size:18px;
+}
+*::-moz-focus-inner{border:0;}

@@ -1,0 +1,118 @@
+﻿<!DOCUTYPE HTML PUBLIC "-//W3c//DTD HTML 4.01 Transitinoal//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>html4.01</title>
+<style>
+*{margin:0;padding:0;}	
+#divContainer{
+	width:800;
+	margin:auto;
+	background:yellow;
+}
+#divHeader{
+	font-size:30px;
+	background-color:blue;
+	color:white;
+	height:100px;
+}
+#divHeader a,
+#divHeader a:visited{
+	color:white;
+	text-decoration:none;
+}
+#divHeader a:hover{
+	color:gray;
+}
+#divNavigationLeft{
+	width:150px;
+	float:left;
+}
+#divContents{
+	background:#888;
+	width:500px;	
+	float:left;
+}
+#divNavigationRight{
+	width:150px;
+	background:yellow;
+	float:left;
+}
+#divFooter{
+	clear:left;
+	background:#ff00ff;
+	height:72pt;
+}
+ul,ol {
+	list-style-position:inside;
+}
+.divName {
+	font-size: 3em;	
+	background:#ff00ff;
+	width:80%;
+	padding:5px;
+	border:5px solid black;
+	border-radius:15px;
+}
+</style>
+</head>
+<body>
+<div id="divContainer">
+<!- ***********   ヘッダー   *********** -->
+<div id="divHeader">
+<a href="HTML4.html">Room#103</a>
+</div>
+<!- ***********   ナビ・左   *********** -->
+<div id="divNavigationLeft">
+<ul>
+	<li>ONE OK ROCK</li>
+	<li>All time low</li>
+	<li>Sum41</li>
+	<li>FallOutBoy</li>
+	<li>LinkinPark</li>
+</ul>
+</div>
+<!- ***********   コンテンツ   *********** -->
+<div id="divContents">
+<script>
+for(var i = 0;i<20;i++){
+	document.write("吉加泰基<br>");
+}
+</script>
+コンテンツコンテンツコンテンツコンテンツコンテンツ<br>
+<div class="divName">吉加泰基</div>
+コンテンツコンテンツコンテンツコンテンツコンテンツ<br>
+<div class="divName">吉加泰基</div>
+コンテンツコンテンツコンテンツコンテンツコンテンツ<br>
+<div class="divName">吉加泰基</div>
+コンテンツコンテンツコンテンツコンテンツコンテンツ<br>
+<div class="divName">吉加泰基</div>
+</div>
+<!- ***********   ナビ右   *********** -->
+<div id="divNavigationRight">
+<ol type="I">
+	<li>ONE OK ROCK</li>
+	<li>All time low</li>
+	<li>Sum41</li>
+	<li>FallOutBoy</li>
+	<li>LinkinPark</li>
+</ol>
+</div>
+<!- ***********   フッター   *********** -->
+<div id="divFooter">
+copyright@Yoshika Taiki
+</div>
+</div>
+<!--
+<div id="btn">
+	<ul>
+		<li><a href="">Number1</a></li>
+		<li><a href="">Number2</a></li>
+		<li><a href="">Number3</a></li>
+		<li><a href="">Number4</a></li>
+		<li><a href="">Number5</a></li>
+	</ul>
+</div>
+-->
+
+</body>
+</html>
