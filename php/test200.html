@@ -2,27 +2,10 @@
 <head>
 <title>test200.php</title>
 <link rel="stylesheet" type="text/css" href="../css/test_style.css">
-<script>
-function formCheck(){
-    var flag = 0;
+<script type="text/javascript" src="../js/check.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
 
-    // 入力必須項目が入力されているかチェック
-    if( document . Form1 . frmName . value == "" ){ // 名前が未入力の場合
-        flag = 1;
-        document . getElementById( 'noticeName' ) . style . display = "inline-block"; // 【名前を入力して下さい】を表示
-    }else{ // 名前が入力済みの場合
-        document . getElementById( 'noticeName' ) . style . display = "none"; // 【名前を入力して下さい】を非表示
-    }
-
-    if(flag == 1){ // 入力必須項目に未入力があった場合
-        window . alert( '項目を全て入力して下さい。' ); // アラートを表示
-        return false; // 送信中止
-    }else{ // 入力必須項目が全て入力済みだった場合
-        return true; // 送信実行
-    }
-
-}
-</script>
 </head>
 <body>
 <h1>第１章 Web-DB連携の動作確認</h1>
@@ -44,12 +27,15 @@ formCheck();
 </td>
 <td>
 <select name="frmAtdnum" size="1">
+<<option value=""></option>
 <script>
 for(var i = 1;i<=39;i++){
 	document.write('<option value="'+i+'">'+i+'</option>\n');
 }
 </script>
 </select>
+<span class="notice" id="noticeAtdnum" > 【出席番号を選択してください】</span>
+
 </td>
 </tr>
  <!--名前-->
@@ -59,7 +45,7 @@ for(var i = 1;i<=39;i++){
 </td>
 <td>
 <input type="text" placeholder="漢字で名前を入力してください" name="frmName" >
-<span id="noticeName" style="display: none; color: red;"> 【名前を入力して下さい】</span>
+<span class="notice" id="noticeName" > 【名前を入力して下さい】</span>
 </td>
 </tr>
  <!--性別-->
@@ -71,9 +57,9 @@ for(var i = 1;i<=39;i++){
 <input type="radio" id="male" name="frmGender" value="男">
 <label for="male">男性</label>
 <input type="radio" id="female" name="frmGender" value="女">
-<label for="female">女性</label><br>
+<label for="female">女性</label>
 <input type="radio" name="frmGender"value="" checked="checked" style="display:none;" />
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<span class="notice" id="noticeGender" > 【性別を選択してください】</span>
 </td>
 </tr>
 <!--誕生月-->
@@ -99,7 +85,7 @@ for(var i = 1;i<=31;i++){
 }
 </script>
 </select>日
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<span class="notice" id="noticeBirth" > 【誕生日を選択してください】</span>
 </td>
 <!--血液型-->
 <tr>
@@ -114,7 +100,7 @@ for(var i = 1;i<=31;i++){
 <option value="O">O</option>
 <option value="AB">AB</option>
 </select>型
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<span class="notice" id="noticeBlood" > 【血液型を選択してください】</span>
 </td>
 </tr>
 <!--身長-->
@@ -140,7 +126,7 @@ document.write('<option value="'+val[i+1]+'">'+tallMax+'～</option>');
 </script>
 </select>
 cm
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<span class="notice" id="noticeTall" > 【身長を選択してください】</span>
 </td>
 </tr>
 <tr>
@@ -152,11 +138,12 @@ cm
 <span class="question">犬派？猫派？</span>
 </td>
 <td>
-<input type="radio" id="dog" name="frmPet" value="犬">
+<input type="radio" id="dog" name="frmQ1" value="犬">
 <label for="dog">犬</label>
-<input type="radio" id="cat" name="frmPet" value="猫">
+<input type="radio" id="cat" name="frmQ1" value="猫">
 <label for="cat">猫</label>
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<input type="radio" name="frmQ1"value="" checked="checked" style="display:none;" />
+<span class="notice" id="noticeQ1" > 【質問に回答してください】</span>
 </td>
 </tr>
 <!--利き手-->
@@ -165,12 +152,12 @@ cm
 <span class="question">利き手</span>
 </td>
 <td>
-<input type="radio" id="rightHand" name="frmHand" value="左利き">
-<label for="rightHand">左利き</label>
-<input type="radio" id="leftHand" name="frmHand" value="右利き">
-<label for="leftHand">右利き</label><br>
+<input type="radio" id="rightHand" name="frmQ2" value="左利き">
+<label for="rightHand" >左利き</label>
+<input type="radio" id="leftHand" name="frmQ2" value="右利き">
+<label for="leftHand">右利き</label>
 <input type="radio" name="frmHand"value="" checked="checked" style="display:none;" />
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<span class="notice" id="noticeQ2" > 【質問に回答してください】</span>
 </td>
 </tr>
 <!--平均睡眠時間-->
@@ -179,8 +166,9 @@ cm
 <span class="question">１日の平均睡眠時間</span>
 </td>
 <td>
-<input type="text" plaseholder="半角数字で入力してください" size="2" name="frmSleep">時間
-<span id="notice" style="display: none; color: red;"> 【】</span>
+<input type="text" plaseholder="半角数字で入力してください" size="2" name="frmQ3">時間
+<span class="notice" id="noticeQ3" > 【質問に回答してください】</span>
+<span class="notice" id="noticeQ3number" > 【半角数字で入力してください】</span>
 </td>
 </tr>
 </table>
@@ -188,9 +176,7 @@ cm
 <input type="submit" value="SEND"><input type="reset" value="CLEAR">
 </div>
 </form>
-
 </div>
-
 
 </body>
 </html>
