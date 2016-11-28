@@ -47,6 +47,23 @@ form{
 	font-family:"メイリオ";
 	line-heigt:50px;
 }
+input+span,
+select+span{
+	transition: display linear 0.2s;
+	display: none;
+}
+.notice{
+	color: rgba(255, 0, 0, 0);
+	height: 0px;
+	overflow: hidden;
+	float: right;
+display: inline-block;
+	transition: color linear 0.2s;
+}
+.caution {
+	height: auto;
+	color: rgba(255, 0, 0, 1);
+}
 /*------------------------------------------------------------------------------------
                                     テキスト入力
 -------------------------------------------------------------------------------------*/
@@ -86,7 +103,7 @@ input[type="reset"]{
 	-ms-background: linear-gradient(#3985db,#1a6bc6);
 	background: linear-gradient(#3985db,#1a6bc6);*/
 	background: white;
-	border:solid 3px #1a6bc6;
+	border:solid 2px #1a6bc6;
 	border-radius: 5px;
 	line-height: 2.0em;
 	box-shadow: none;
@@ -198,6 +215,7 @@ input[type="radio"]{
 	cursor: pointer !important;
 }
 input[type="radio"]+label{/*チェックボックス*/
+	color: #aaa;
 	cursor: pointer !important;
 	display: inline-block;
 	position: relative;
@@ -220,7 +238,7 @@ input[type="radio"]+label:hover{ /*オンマウス状態のラベルの装飾*/
 	border-color:#1a6bc6;
 	border-radius: 5px;
 }
-input[type="radio"]:checked+label{
+input[type="radio"]:checked+label{/*チェック状態のラベル装飾*/
 	border:2px solid #1a6bc6;
 	color:#1a6bc6;
 	background:white;
@@ -304,11 +322,12 @@ td{
 #tblDB th:nth-child(2){width:120px;}
 
 #tblQ{
+	background: white;
 	width:700px;
-	border-color:#999;
+	border:none;
 }
 #tblQ td{
-	background:white;
+	background:#fafafa;
 	height:50px;
 }
 #tblQ td:nth-child(odd){
@@ -316,8 +335,4 @@ td{
 	background: #5F9CE7;
 	color:white;
 	width:30%;
-}
-
-.v1:hover,.v2:hover,.v3:hover,.v4:hover,.v5:hover,.v6:hover,.v7:hover,.v8:hover,.v9:hover,.v10:hover,
-.h1:hover,.h2:hover,.h3:hover,.h4:hover,.h5:hover,.h6:hover,.h7:hover,.h8:hover,.h9:hover,.h10:hover{
 }
